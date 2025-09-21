@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>リボンコンプ支援ツール（モック）</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- 左ペイン：ポケモン保存画面 -->
+      <section id="leftPane" class="panel left show">
+        <div class="header">
+          <button id="addBtn" class="btn">新規追加</button>
+          <input id="searchInput" class="input search" type="search" placeholder="ポケモン検索（ニックネーム/種族名）" />
+          <span class="title">保存ポケモン</span>
+          <button id="themeToggleBtnLeft" class="btn secondary" title="テーマ切替">テーマ</button>
+        </div>
+        <div id="pokemonList" class="list" aria-label="保存ポケモン一覧"></div>
+      </section>
+
+      <!-- 右ペイン：リボン情報画面 -->
+      <section id="rightPane" class="panel right">
+        <div class="header">
+          <button id="backBtn" class="btn ghost" title="戻る" aria-label="戻る">←</button>
+          <input id="speciesInput" class="input" type="text" placeholder="種族名を入力（例: フシギダネ, ピカチュウ）" list="speciesDatalist" />
+          <datalist id="speciesDatalist"></datalist>
+          <select id="generationSelect" class="input" aria-label="世代選択"></select>
+          <span id="progressBadge" class="badge">0/0</span>
+          <div class="spacer"></div>
+          <button id="themeToggleBtnRight" class="btn secondary" title="テーマ切替">テーマ</button>
+        </div>
+
+        <div class="content">
+          <div class="row small">
+            <label class="flex">
+              <span class="tooltip">ニックネーム</span>
+              <input id="nicknameInput" class="input" type="text" placeholder="例: リボダネ" />
+            </label>
+            <label class="flex">
+              <span class="tooltip">入手レベル</span>
+              <input id="levelInput" class="input" type="number" min="1" max="100" step="1" />
+            </label>
+            <div class="flex">
+              <span class="tooltip">禁止伝説</span>
+              <span id="legendBadge" class="badge">未設定</span>
+            </div>
+          </div>
+
+          <div id="ribbonList" class="ribbon-list" aria-label="リボン一覧"></div>
+        </div>
+
+        <div class="footer">
+          <button id="checkAllBtn" class="btn secondary">全選択</button>
+          <button id="uncheckAllBtn" class="btn secondary">全解除</button>
+          <div class="spacer"></div>
+          <span id="saveHint" class="tooltip">変更は自動保存</span>
+        </div>
+      </section>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+  </html>
